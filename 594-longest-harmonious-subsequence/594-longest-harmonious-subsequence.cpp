@@ -2,7 +2,7 @@ class Solution {
 public:
     int findLHS(vector<int>& nums) {
         set<int> s;
-        unordered_map<int,int> m;
+        map<int,int> m;
         
         for(auto i: nums){
             m[i]+=1;
