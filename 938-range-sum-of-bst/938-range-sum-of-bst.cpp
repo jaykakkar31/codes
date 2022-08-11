@@ -11,18 +11,19 @@
  */
 class Solution {
 public:
-    void solve(TreeNode* root, int low, int high,vector<int> &v){
+    void solve(TreeNode* root, int low, int high,int &total){
         if(root==NULL) return ;
         
-        if(root->val>=low and root->val<=high) v.push_back(root->val);
-        solve(root->left,low,high,v);
-        solve(root->right,low,high,v);
+        if(root->val>=low and root->val<=high) total+=root->val;
+        solve(root->left,low,high,total);
+        solve(root->right,low,high,total);
         
     }
     int rangeSumBST(TreeNode* root, int low, int high) {
         vector<int> v;
-        solve(root,low,high,v);
-        int total=accumulate(v.begin(),v.end(),0);
+        int total=0;
+        solve(root,low,high,total);
+        // int total=accumulate(v.begin(),v.end(),0);
         return total;
     }
 };
