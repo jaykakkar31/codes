@@ -1,7 +1,7 @@
 class Solution:
     def minSetSize(self, arr: List[int]) -> int:
         c=Counter(arr)
-        s=list(set(arr))
+        # s=list(set(arr))
         l=len(arr)
         d={k:v for k,v in sorted(c.items(),key=lambda x:x[1])[::-1]}
         count=0
