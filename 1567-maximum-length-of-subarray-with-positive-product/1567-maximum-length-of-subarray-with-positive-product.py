@@ -6,7 +6,10 @@ class Solution:
         for num in nums:
             if num>0:
                 dp[0]+=1
-                dp[1]+=1 if dp[1]!=0 else 0
+                if dp[1]!=0:
+                    dp[1]+=1
+                else:
+                    dp[1]=0
             elif num<0:
                 temp=dp[0]+1
                 dp[0]=dp[1]+1 if dp[1]!=0 else 0
