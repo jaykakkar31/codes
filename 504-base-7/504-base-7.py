@@ -9,7 +9,7 @@ class Solution:
             p=-1
             num*=-1
         while num>0:
-            t=num//7
+            
             s+=str(num%7)
             num//=7
         
