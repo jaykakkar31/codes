@@ -1,0 +1,45 @@
+class Solution {
+public:
+    vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+       vector<vector<int>> ans;
+        priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>> p;
+        int n=nums1.size(),m=nums2.size();
+        for (int i=0;i<n;i++){
+            
+                int sum=nums1[i]+nums2[0];
+                p.push({sum,{i,0}});
+            
+        }        
+        vector<int> v;
+        while(k-- and !p.empty()){
+            pair<int,int> temp=p.top().second;
+            p.pop();
+            v.push_back(nums1[temp.first]);
+            v.push_back(nums2[temp.second]);
+            if(temp.second!=m-1){
+                p.push({nums1[temp.first]+nums2[temp.second+1],{temp.first,temp.second+1}});
+            }
+            ans.push_back(v);
+            v.clear();
+            
+            
+        }
+        return ans;
+    }
+};
+                       
+//                        priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<pair<int,pair<int,int>>>> pq;
+//         int n = nums1.size(), m = nums2.size();
+//         vector<vector<int>> ans;
+//         for(int i = 0; i < n; i++)
+//             pq.push({nums1[i]+nums2[0],{i,0}});
+//         while(!pq.empty() && k--)
+//         {
+//             pair<int,pair<int,int>> tp = pq.top();
+//             int x = tp.second.first, y = tp.second.second;
+//             pq.pop();
+//             ans.push_back({nums1[x], nums2[y]});
+//             if(y != m-1)
+//                 pq.push({nums1[x]+nums2[y+1],{x, y+1}});
+//         }
+//         return ans;
