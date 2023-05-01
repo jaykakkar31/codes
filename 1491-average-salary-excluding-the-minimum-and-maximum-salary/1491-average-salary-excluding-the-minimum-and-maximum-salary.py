@@ -1,12 +1,15 @@
 class Solution:
     def average(self, salary: List[int]) -> float:
-        salary.sort()
-        total=0
-        if len(salary)==3:
-            print("E")
-            return salary[1]
-        count=0
-        for i in range(1,len(salary)-1):
-            count+=1
-            total+=salary[i]
-        return total/count
+        min=1000000
+        max=0
+        sum=0
+        for i in salary:
+            if i<min:
+                min=i
+            if i>max:
+                max=i
+            sum+=i
+        print(max,min)
+        sum-=max
+        sum-=min
+        return sum/(len(salary)-2)
