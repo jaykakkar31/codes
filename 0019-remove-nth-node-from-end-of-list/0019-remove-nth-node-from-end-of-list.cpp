@@ -15,9 +15,9 @@ public:
         if(head==NULL){
             return NULL;
         }
-        if(head->next==NULL&&n==1){
-            return head->next;
-        }
+        // if(head->next==NULL&&n==1){
+        //     return head->next;
+        // }
         ListNode* temp=head,*curr=head,*prev=NULL;
         while(n){
             temp=temp->next;
