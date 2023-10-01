@@ -33,11 +33,9 @@ public:
         }
         cout<<curr->val;
         if(curr){
-            if(prev==NULL){
-                prev=curr->next;
-            }else{
+            
             prev->next=curr->next;    
-            }
+            
             
 
            
