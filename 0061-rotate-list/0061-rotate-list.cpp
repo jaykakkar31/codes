@@ -24,7 +24,7 @@ public:
             k=k%len;
         }
         itr=head;
-        for(int i=0;i<len-(k%len)-1;i++){
+        for(int i=0;i<len-k-1;i++){
             itr=itr->next;   
         }
         head=itr->next;
