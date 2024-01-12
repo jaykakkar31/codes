@@ -9,7 +9,7 @@ public:
             return;
         }
         for(int i=ind;i<candidates.size();i++){
-            if(i!=ind&&candidates[i]==candidates[i-1]){
+            if(i>0&&i!=ind&&candidates[i]==candidates[i-1]){
                 continue;
             }
             // sum+=candidates[i];
