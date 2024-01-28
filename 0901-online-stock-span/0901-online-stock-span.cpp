@@ -7,6 +7,7 @@ public:
     }
     
     int next(int price) {
+        
         v.push_back(price);
         if(v.size()==1){
             s.push(price);
@@ -14,17 +15,32 @@ public:
             return 1;
         }
         int count=1;
-        while(!s.empty() and price>=s.top()){
-            s.pop();
+        while(!s.empty()&&price>=s.top()){
             count+=prevCount.top();
-           prevCount.pop();
-                
+            prevCount.pop();
+            s.pop();
         }
-        prevCount.push(count);
         s.push(price);
-        
-        
+        prevCount.push(count);
         return count;
+//         v.push_back(price);
+//         if(v.size()==1){
+//             s.push(price);
+//             prevCount.push(1);
+//             return 1;
+//         }
+//         int count=1;
+//         while(!s.empty() and price>=s.top()){
+//             s.pop();
+//             count+=prevCount.top();
+//            prevCount.pop();
+                
+//         }
+//         prevCount.push(count);
+//         s.push(price);
+        
+        
+//         return count;
     }
 };
 
